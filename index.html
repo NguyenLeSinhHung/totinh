@@ -3,89 +3,89 @@
 <head>
   <meta charset="UTF-8">
   <title>Love Book</title>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/4/turn.min.js"></script>
   <style>
     body {
       margin: 0;
-      background: #9c27b0; /* nền tím */
+      background: #9c27b0;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
-      font-family: sans-serif;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
     }
-
-    #book {
-      width: 90vw;
-      max-width: 600px;
-      height: 80vh;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-      border-radius: 10px;
+    h1 {
+      position: absolute;
+      top: 20px;
+      text-align: center;
+      color: white;
     }
-
+    .book {
+      width: 340px;
+      height: 500px;
+    }
     .page {
       width: 100%;
       height: 100%;
       background: white;
-      border-radius: 10px;
-      overflow: hidden;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .page img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover; /* ảnh phủ full trang */
-    }
-
-    /* Trang bìa */
-    .cover {
-      background: #9c27b0;
-      color: white;
-      font-size: 2rem;
-      font-weight: bold;
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
+      font-size: 20px;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    .page img {
+      width: 90%;
+      border-radius: 12px;
+      margin-top: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
   </style>
+  <!-- jQuery + Turn.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/4.1.0/turn.min.js"></script>
 </head>
 <body>
-  <div id="book">
+
+  <h1>LOVE BOOK</h1>
+
+  <div class="book">
     <!-- Bìa trước -->
-    <div class="page cover">
-      <div>LOVE BOOK 💕</div>
+    <div class="page" style="background:#f8dce2;">
+      <h2>Bìa sách 💖</h2>
+      <img src="https://picsum.photos/250/350?random=1" alt="bia sach">
     </div>
-
     <!-- Trang 1 -->
-    <div class="page"><img src="https://picsum.photos/id/1015/600/800" alt="Trang 1"></div>
-
+    <div class="page">
+      <p>Trang 1: Happy Birthday 🎂</p>
+      <img src="https://picsum.photos/250/350?random=2">
+    </div>
     <!-- Trang 2 -->
-    <div class="page"><img src="https://picsum.photos/id/1025/600/800" alt="Trang 2"></div>
-
+    <div class="page">
+      <p>Trang 2: Lời nhắn 💌</p>
+      <img src="https://picsum.photos/250/350?random=3">
+    </div>
     <!-- Trang 3 -->
-    <div class="page"><img src="https://picsum.photos/id/1035/600/800" alt="Trang 3"></div>
-
-    <!-- Trang 4 -->
-    <div class="page"><img src="https://picsum.photos/id/1045/600/800" alt="Trang 4"></div>
-
+    <div class="page">
+      <p>Trang 3: Kỷ niệm 🌸</p>
+      <img src="https://picsum.photos/250/350?random=4">
+    </div>
     <!-- Bìa sau -->
-    <div class="page cover">
-      <div>💕 The End 💕</div>
+    <div class="page" style="background:#f8dce2;">
+      <h2>Hết sách 📖</h2>
     </div>
   </div>
 
   <script>
-    $("#book").turn({
-      width: "100%",
-      height: "100%",
+    $(".book").turn({
+      width: 340,
+      height: 500,
       autoCenter: true,
-      display: "double" // hiển thị kiểu 2 trang mở như sách thật
+      gradients: true,   // hiệu ứng bóng
+      duration: 1000     // tốc độ lật (ms)
     });
   </script>
+
 </body>
 </html>
